@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SHAZADA | Men's Fashion</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#fff;
+    color:#111;
+}
+
+/* HEADER */
+s
+header{
+    height:75px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 7%;
+    background:white;
+    border-bottom:1px solid #eee;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:900;
+    letter-spacing:3px;
+}
+
+nav{
+    display:flex;
+    gap:28px;
+}
+
+nav a{
+    text-decoration:none;
+    color:#111;
+    font-weight:bold;
+}
+
+nav a:hover{
+    color:#777;
+}
+
+.cart-button{
+    border:none;
+    background:#111;
+    color:white;
+    padding:11px 18px;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+/* HERO */
+
+.hero{
+    min-height:600px;
+    background:linear-gradient(
+        rgba(0,0,0,.45),
+        rgba(0,0,0,.45)
+    ),
+    linear-gradient(135deg,#ddd,#777);
+    
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:white;
+    padding:30px;
+}
+
+.hero-content h1{
+    font-size:70px;
+    letter-spacing:8px;
+    margin-bottom:15px;
+}
+
+.hero-content p{
+    font-size:21px;
+    margin-bottom:30px;
+}
+
+.shop-button{
+    display:inline-block;
+    background:white;
+    color:#111;
+    text-decoration:none;
+    padding:15px 35px;
+    border-radius:5px;
+    font-weight:bold;
+}
+
+.shop-button:hover{
+    background:#ddd;
+}
+
+/* SECTION */
+
+.section{
+    padding:80px 7%;
+}
+
+.title{
+    text-align:center;
+    font-size:38px;
+    margin-bottom:45px;
+}
+
+/* PRODUCTS */
+
+.products{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.product{
+    border:1px solid #ddd;
+    border-radius:10px;
+    overflow:hidden;
+    background:white;
+    transition:.3s;
+}
+
+.product:hover{
+    transform:translateY(-7px);
+    box-shadow:0 12px 30px rgba(0,0,0,.12);
+}
+
+.product-image{
+    height:330px;
+    background:linear-gradient(135deg,#eee,#ccc);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:#777;
+    font-size:18px;
+    font-weight:bold;
+}
+
+.product-info{
+    padding:22px;
+}
+
+.product-info h3{
+    font-size:21px;
+    margin-bottom:10px;
+}
+
+.description{
+    color:#666;
+    line-height:1.5;
+    margin-bottom:15px;
+}
+
+.price{
+    font-size:20px;
+    font-weight:bold;
+    margin-bottom:18px;
+}
+
+.add-button{
+    width:100%;
+    border:none;
+    background:#111;
+    color:white;
+    padding:14px;
+    border-radius:5px;
+    cursor:pointer;
+    font-size:15px;
+}
+
+.add-button:hover{
+    background:#333;
+}
+
+/* ABOUT */
+
+.about{
+    background:#f5f5f5;
+    text-align:center;
+}
+
+.about p{
+    max-width:800px;
+    margin:auto;
+    color:#555;
+    line-height:1.8;
+    font-size:17px;
+}
+
+/* CONTACT */
+
+.contact{
+    text-align:center;
+}
+
+.contact p{
+    margin:12px;
+    font-size:17px;
+}
+
+/* FOOTER */
+
+footer{
+    background:#111;
+    color:white;
+    text-align:center;
+    padding:30px;
+}
+
+/* CART */
+
+.cart{
+    position:fixed;
+    right:-420px;
+    top:0;
+    width:380px;
+    max-width:90%;
+    height:100vh;
+    background:white;
+    z-index:3000;
+    box-shadow:-5px 0 25px rgba(0,0,0,.25);
+    padding:25px;
+    transition:.3s;
+    overflow-y:auto;
+}
+
+.cart.open{
+    right:0;
+}
+
+.cart-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:1px solid #ddd;
+    padding-bottom:20px;
+    margin-bottom:20px;
+}
+
+.close{
+    font-size:30px;
+    cursor:pointer;
+}
+
+.cart-item{
+    border-bottom:1px solid #ddd;
+    padding:15px 0;
+}
+
+.remove{
+    margin-top:8px;
+    background:#ddd;
+    border:none;
+    padding:7px 12px;
+    cursor:pointer;
+}
+
+.total{
+    font-size:21px;
+    font-weight:bold;
+    margin-top:25px;
+}
+
+.whatsapp{
+    width:100%;
+    margin-top:20px;
+    padding:15px;
+    border:none;
+    background:#111;
+    color:white;
+    border-radius:5px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+/* MOBILE */
+
+@media(max-width:800px){
+
+    header{
+        padding:0 20px;
+    }
+
+    nav{
+        display:none;
+    }
+
+    .hero-content h1{
+        font-size:45px;
+    }
+
+    .products{
+        grid-template-columns:1fr;
+    }
+
+    .section{
+        padding:55px 20px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- HEADER -->
+
+<header>
+
+    <div class="logo">
+        SHAZADA
+    </div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#products">Products</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <button class="cart-button" onclick="openCart()">
+        🛒 Cart (<span id="cartCount">0</span>)
+    </button>
+
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <h1>SHAZADA</h1>
+
+        <p>
+            Premium Men's Clothing & Streetwear
+        </p>
+
+        <a href="#products" class="shop-button">
+            SHOP NOW
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- PRODUCTS -->
+
+<section class="section" id="products">
+
+    <h2 class="title">
+        Our Collection
+    </h2>
+
+
+    <div class="products">
+
+
+        <!-- PRODUCT 1 -->
+
+        <div class="product">
+
+            <div class="product-image">
+                T-SHIRT IMAGE
+            </div>
+
+            <div class="product-info">
+
+                <h3>Oversized T-Shirt</h3>
+
+                <p class="description">
+                    Premium comfortable oversized men's T-shirt.
+                </p>
+
+                <div class="price">
+                    Rs. 2,499
+                </div>
+
+                <button class="add-button"
+                onclick="addProduct('Oversized T-Shirt',2499)">
+                    Add to Cart
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- PRODUCT 2 -->
+
+        <div class="product">
+
+            <div class="product-image">
+                TROUSER IMAGE
+            </div>
+
+            <div class="product-info">
+
+                <h3>Baggy Trousers</h3>
+
+                <p class="description">
+                    Modern wide-leg streetwear trousers.
+                </p>
+
+                <div class="price">
+                    Rs. 3,499
+                </div>
+
+                <button class="add-button"
+                onclick="addProduct('Baggy Trousers',3499)">
+                    Add to Cart
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- PRODUCT 3 -->
+
+        <div class="product">
+
+            <div class="product-image">
+                JACKET IMAGE
+            </div>
+
+            <div class="product-info">
+
+                <h3>Winter Jacket</h3>
+
+                <p class="description">
+                    Stylish and comfortable winter jacket.
+                </p>
+
+                <div class="price">
+                    Rs. 5,999
+                </div>
+
+                <button class="add-button"
+                onclick="addProduct('Winter Jacket',5999)">
+                    Add to Cart
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- PRODUCT 4 -->
+
+        <div class="product">
+
+            <div class="product-image">
+                HOODIE IMAGE
+            </div>
+
+            <div class="product-info">
+
+                <h3>Premium Hoodie</h3>
+
+                <p class="description">
+                    Warm premium hoodie for winter.
+                </p>
+
+                <div class="price">
+                    Rs. 4,499
+                </div>
+
+                <button class="add-button"
+                onclick="addProduct('Premium Hoodie',4499)">
+                    Add to Cart
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- PRODUCT 5 -->
+
+        <div class="product">
+
+            <div class="product-image">
+                SHIRT IMAGE
+            </div>
+
+            <div class="product-info">
+
+                <h3>Streetwear Shirt</h3>
+
+                <p class="description">
+                    Clean modern shirt for everyday style.
+                </p>
+
+                <div class="price">
+                    Rs. 2,999
+                </div>
+
+                <button class="add-button"
+                onclick="addProduct('Streetwear Shirt',2999)">
+                    Add to Cart
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- PRODUCT 6 -->
+
+        <div class="product">
+
+            <div class="product-image">
+                TRACKSUIT IMAGE
+            </div>
+
+            <div class="product-info">
+
+                <h3>Premium Tracksuit</h3>
+
+                <p class="description">
+                    Comfortable tracksuit for modern fashion.
+                </p>
+
+                <div class="price">
+                    Rs. 6,499
+                </div>
+
+                <button class="add-button"
+                onclick="addProduct('Premium Tracksuit',6499)">
+                    Add to Cart
+                </button>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section class="section about" id="about">
+
+    <h2 class="title">
+        About Shazada
+    </h2>
+
+    <p>
+        Welcome to Shazada. We provide stylish and comfortable
+        men's clothing including oversized T-shirts, baggy trousers,
+        jackets, hoodies and modern streetwear.
+    </p>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section class="section contact" id="contact">
+
+    <h2 class="title">
+        Contact Us
+    </h2>
+
+    <p>
+        📱 WhatsApp: +92 3010006022
+    </p>
+
+    <p>
+        📧 Email: itsmrhanan49@gmail.com
+    </p>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <p>
+        © 2026 SHAZADA. All Rights Reserved.
+    </p>
+
+</footer>
+
+
+<!-- CART -->
+
+<div class="cart" id="cart">
+
+    <div class="cart-header">
+
+        <h2>
+            Your Cart
+        </h2>
+
+        <span class="close" onclick="closeCart()">
+            ×
+        </span>
+
+    </div>
+
+    <div id="cartItems">
+
+        <p>
+            Your cart is empty.
+        </p>
+
+    </div>
+
+    <div class="total">
+
+        Total: Rs.
+        <span id="total">
+            0
+        </span>
+
+    </div>
+
+    <button class="whatsapp"
+            onclick="orderWhatsApp()">
+
+        Order on WhatsApp
+
+    </button>
+
+</div>
+
+
+<script>
+
+let cart = [];
+
+
+/* ADD PRODUCT */
+
+function addProduct(name, price){
+
+    cart.push({
+        name:name,
+        price:price
+    });
+
+    updateCart();
+
+    alert(name + " added to cart!");
+
+}
+
+
+/* UPDATE CART */
+
+function updateCart(){
+
+    let items =
+        document.getElementById("cartItems");
+
+    let count =
+        document.getElementById("cartCount");
+
+    let totalElement =
+        document.getElementById("total");
+
+
+    count.innerText = cart.length;
+
+
+    if(cart.length === 0){
+
+        items.innerHTML =
+        "<p>Your cart is empty.</p>";
+
+        totalElement.innerText = "0";
+
+        return;
+
+    }
+
+
+    let total = 0;
+
+    items.innerHTML = "";
+
+
+    cart.forEach(function(product,index){
+
+        total += product.price;
+
+
+        items.innerHTML += `
+
+            <div class="cart-item">
+
+                <strong>
+                    ${product.name}
+                </strong>
+
+                <br><br>
+
+                Rs.
+                ${product.price.toLocaleString()}
+
+                <br>
+
+                <button
+                    class="remove"
+                    onclick="removeProduct(${index})">
+
+                    Remove
+
+                </button>
+
+            </div>
+
+        `;
+
+    });
+
+
+    totalElement.innerText =
+        total.toLocaleString();
+
+}
+
+
+/* REMOVE PRODUCT */
+
+function removeProduct(index){
+
+    cart.splice(index,1);
+
+    updateCart();
+
+}
+
+
+/* OPEN CART */
+
+function openCart(){
+
+    document
+        .getElementById("cart")
+        .classList.add("open");
+
+}
+
+
+/* CLOSE CART */
+
+function closeCart(){
+
+    document
+        .getElementById("cart")
+        .classList.remove("open");
+
+}
+
+
+/* WHATSAPP ORDER */
+
+function orderWhatsApp(){
+
+    if(cart.length === 0){
+
+        alert("Your cart is empty!");
+
+        return;
+
+    }
+
+
+    let message =
+        "Assalam-o-Alaikum, I want to order:%0A%0A";
+
+    let total = 0;
+
+
+    cart.forEach(function(product){
+
+        message +=
+            product.name +
+            " - Rs. " +
+            product.price +
+            "%0A";
+
+        total += product.price;
+
+    });
+
+
+    message +=
+        "%0ATotal: Rs. " +
+        total;
+
+
+    /*
+       IMPORTANT:
+
+       Yahan apna WhatsApp number lagao.
+
+       Example:
+
+       923001234567
+
+       + sign mat lagana.
+    */
+
+
+    let phone =
+        "923001234567";
+
+
+    let url =
+        "https://wa.me/" +
+        phone +
+        "?text=" +
+        message;
+
+
+    window.open(url,"_blank");
+
+}
+
+</script>
+
+
+</body>
+</html>
